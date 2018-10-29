@@ -1,0 +1,13 @@
+Concatenate is to merge data together, specifically as strings(text)
+=CONCATENATE(A2, " ", B2, " ", C2)
+
+Concatenate may also use formulas as parameters! :) 
+=IF(
+ISNUMBER(
+INDEX(ADOPTIONS!A:A,MATCH(K3,ADOPTIONS!A:A,0))
+),
+CONCATENATE(
+INDEX(ADOPTIONS!B:B,MATCH(K3,ADOPTIONS!A:A,0))," ",
+INDEX(ADOPTIONS!C:C,MATCH(K3,ADOPTIONS!A:A,0))," ",
+INDEX(ADOPTIONS!D:D,MATCH(K3,ADOPTIONS!A:A,0)))
+,"")
