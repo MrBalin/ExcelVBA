@@ -3,6 +3,8 @@
 
 'By defining the variables INSIDE parameters, you can minimize user errors
 'While not in itself a long formula, calling MyCuss is a LOT faster. 
+''''''''''''''''''''''''''''''
+
 Function MyCuss(Wholesale As Integer, List As Integer)
 newPrice = 0.85 * (Wholesale * 2)
 halfList = List / 2
@@ -15,6 +17,7 @@ End If
 
 CUSS = Answer
 End Function
+
 ''''''''''''''''''''''''''''
 Function MyOversell(Price As Integer, List As Integer)
 priceAfterCommission = 0.85 * Price
@@ -28,11 +31,15 @@ End If
 
 OVERSELL = Answer
 End Function
+
 ''''''''''''''''''''''''
+
 'Variant can be anything
 'I chose this type because it could be a cell reference OR actual value
 'I used IndexMatch for EVERYTHING at work.
 'Granted this one only works IfIsNumber, but I worked with Book ISBNs
+''''''''''''''''''''''''''''''''''
+
 Function REFERENCE(CellToFind As Variant, ReferenceColumn As Range, FindColumn As Range)
     
     Dim matchReference As Variant
@@ -52,10 +59,13 @@ Function REFERENCE(CellToFind As Variant, ReferenceColumn As Range, FindColumn A
     End With
 End Function
 
+'''''''''''''''''''''''''''''''''''''''''''
+
 'I understand there is: =RIGHT(A1,LEN(A1)-FIND(",",A1))
 'but this is much easier to remember.
 'Remembering something faster, means not wasting time looking something up,
 'even if it DOES do the same thing.
+
 Function RIGHTOFCHARACTER(CellToFind As Variant, Character As String)
 
     Dim tempChar As String
