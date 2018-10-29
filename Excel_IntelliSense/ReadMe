@@ -1,0 +1,10 @@
+This bad boy can let your custom function use intellisense!
+There are two ways to do so. 
+A complicated wa,
+a kinda unFUN but certainly effective way.
+
+I chose the later.
+If you're going to be making custom functions, chances are you're probably going to make them in an addin or in PERSONAL.
+Should you decide to do so inside a pre-existing workbook, at least you can hide a tab... I think.
+Please check out my own Add-in for details.
+ExcelVBA/Addins/Formulas.XLAM
