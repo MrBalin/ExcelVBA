@@ -1,0 +1,23 @@
+Find Left of Character
+LEFT(text, number to stop at)
+But the trick is:
+How do we do that if all we have is character we want to find?
+FIND(character, in text)
+However this will return everything left of the character INCLUDING
+that same character, which is why we add a -1 afterwards.
+=LEFT(
+D3,
+FIND("@", D3)
+-1)
+
+Just like in LEFT, we need to find the number of at which the character
+we want to find is positioned at.
+we do use FIND() again, but the length is INVERTED to where we want it.
+First we have to find the entire length of the string/text
+then we can subtract what FIND returned.
+This is similar to counting from the end of the text, instead of 
+from the front.
+=RIGHT(
+D3,
+LEN(D3) - FIND("@", D3)
+)
