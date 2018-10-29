@@ -1,0 +1,4 @@
+This is a small Add-in I created to help me at work.
+I build custom formulas, that work WONDERS with Excel DNA's Intellisense.
+It's pretty small, but saving things as addins via ".XLAM" are a bunch easier than
+using PERSONAL, because it's a quick file share between coworkers/collegues.
