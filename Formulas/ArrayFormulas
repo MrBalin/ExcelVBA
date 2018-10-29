@@ -1,0 +1,46 @@
+So you want to find data that HAS to match in the same row BUT 2 columns?!
+Came to the right place!
+
+Be careful when using array formulas:
+They eat so much memory it is not even funny! :O
+Granted I would audit 4-5,000 lines, but
+I would have to wait 6 full minutes for my
+computer to catch up.
+
+This particular formula is easy to understand, but has several steps.
+Where Column E is the Course Section Number
+If E3 is on the SCRAPER tab, do the array formula,
+else "Missing Class"
+
+Performing the array formula:
+Since E3 IS found in the SCRAPER tab,
+see if there is ALSO a match for G3 (Book ISBN),
+but not just a match, it HAS to be be on the same line as
+where E3 matched.
+This is the same as before, but all you do is MULTIPLY
+the second argument parameter.
+
+Finally
+Instead of hitting ENTER like with normal functions,
+we must hit CTRL+SHIFT+ENTER because of there being an
+array: (E3=SCRAPER!E:E)*(G3=SCRAPER!G:G)
+
+
+=IF(
+ISNUMBER(
+INDEX(
+SCRAPER!E:E,
+MATCH(E3,SCRAPER!E:E,0)
+)
+),
+
+IF(
+ISNUMBER(
+INDEX(
+SCRAPER!E:E,
+MATCH(1,(E3=SCRAPER!E:E)*(G3=SCRAPER!G:G),0)
+)
+),
+
+"MATCH","MISSING ISBN"),
+"MISSING CLASS")
