@@ -1,0 +1,69 @@
+'its a lot easier to find your custom functions with
+'a precendent like My...
+
+'By defining the variables INSIDE parameters, you can minimize user errors
+'While not in itself a long formula, calling MyCuss is a LOT faster. 
+Function MyCuss(Wholesale As Integer, List As Integer)
+newPrice = 0.85 * (Wholesale * 2)
+halfList = List / 2
+
+If newPrice > halfList Then
+Answer = FormatCurrency(newPrice - halfList, 2)
+Else
+Answer = "Not Cussable"
+End If
+
+CUSS = Answer
+End Function
+''''''''''''''''''''''''''''
+Function MyOversell(Price As Integer, List As Integer)
+priceAfterCommission = 0.85 * Price
+halfList = List / 2
+
+If priceAfterCommission > halfList Then
+Answer = FormatCurrency(priceAfterCommission - halfList, 2)
+Else
+Answer = "Bad"
+End If
+
+OVERSELL = Answer
+End Function
+''''''''''''''''''''''''
+'Variant can be anything
+'I chose this type because it could be a cell reference OR actual value
+'I used IndexMatch for EVERYTHING at work.
+'Granted this one only works IfIsNumber, but I worked with Book ISBNs
+Function REFERENCE(CellToFind As Variant, ReferenceColumn As Range, FindColumn As Range)
+    
+    Dim matchReference As Variant
+    Dim indexReference As Variant
+    Dim isNumberCheck As Boolean
+
+    With Application
+        matchReference = .Match(CellToFind, ReferenceColumn, 0)
+        indexReference = .Index(ReferenceColumn, matchReference)
+        isNumberCheck = .IsNumber(indexReference)
+        
+        If isNumberCheck Then
+        REFERENCE = .Index(FindColumn, matchReference) 
+        Else
+        REFERENCE = ""        
+        End If        
+    End With
+End Function
+
+'I understand there is: =RIGHT(A1,LEN(A1)-FIND(",",A1))
+'but this is much easier to remember.
+'Remembering something faster, means not wasting time looking something up,
+'even if it DOES do the same thing.
+Function RIGHTOFCHARACTER(CellToFind As Variant, Character As String)
+
+    Dim tempChar As String
+    Dim rightOfString As String
+    
+    tempChar = Replace(Character, Chr(34), "")
+    rightOfString = Right(CellToFind, Len(CellToFind) - InStr(CellToFind, tempChar))
+
+    RIGHTOFCHARACTER = rightOfString 
+End Function
+
